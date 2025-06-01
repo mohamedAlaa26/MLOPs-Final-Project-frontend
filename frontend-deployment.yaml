@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gesture-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gesture-frontend
+  template:
+    metadata:
+      labels:
+        app: gesture-frontend
+    spec:
+      containers:
+        - name: gesture-frontend
+          image: gesture-game  # Use your Docker Hub image if pushing
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
